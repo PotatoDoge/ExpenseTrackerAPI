@@ -1,14 +1,18 @@
 package com.expensetrackerapi.controller
 
-import org.springframework.web.bind.annotation.GetMapping
+import com.expensetrackerapi.entity.dto.ExpenseDTO
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class ExpenseController {
 
-    @GetMapping("/expenses")
-    fun getExpenses():List<String>{
-        return listOf("1","2","3","4","5","6","7","8","9")
+    @PostMapping("/expense")
+    fun addExpense(@RequestBody expenseDTO: ExpenseDTO): ResponseEntity<String> {
+        return ResponseEntity(HttpStatus.CREATED);
     }
 
 }
